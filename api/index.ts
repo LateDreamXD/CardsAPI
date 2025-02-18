@@ -3,10 +3,10 @@ import moment from 'moment';
 moment.locale('zh-cn');
 
 import config from './config/default.json' with {type: 'json'};
-const {socials, games, week, bgOffset} = config;
+const {socials, games, week, picOffset} = config;
 
-const baseUrl = config.devUrl;
-// const baseUrl = config.prodUrl;
+// const baseUrl = config.devUrl;
+const baseUrl = config.prodUrl;
 
 const fetchImage = async(url: string) => {
 	const res = await fetch(url);
@@ -35,10 +35,10 @@ const genContact = async(params: VercelRequestQuery) => {
 	return result;
 }
 
-const getBg = async(index: number) => {
+const getPic = async(index: number) => {
 	return {
 		img: await fetchImage(baseUrl + 'res/bg/' + index + '.png'),
-		offset: bgOffset[index]
+		offset: picOffset[index]
 	}
 }
 
@@ -63,7 +63,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 		<style>
 			svg {background-color: ${params.bg_color || bgColor}; font-family: system-ui, -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Helvetica, Arial, sans-serif;}
 			#image .line { fill: none; stroke: #000; opacity: .7; stroke-miterlimit: 10; stroke-width: 1.5px; stroke-linecap: round; }
-			#image .bg { height: 250px; }
+			#image .pic { height: 250px; }
 			#detail .text { font-size: 12px; fill: ${params.font_color || textColor}; font-weight: lighter; }
 			#contact .item .icon { width: 16px; height: 16px; }
 			#contact .item .text { font-size: 10px; fill: ${params.font_color || textColor}; font-weight: lighter; }
@@ -74,7 +74,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 	
 	<g id="image">
 		<line class="line" x1="250.5" y1="20" x2="250.5" y2="170"/>
-		<image class="bg" transform="translate(${250 - (await getBg((params.bg as any) || 1)).offset} 32) scale(0.5)" href="${await (await getBg((params.bg as any) || 1)).img}"/>
+		<image class="pic" transform="translate(${250 - (await getPic((params.pic as any) || 1)).offset} 32) scale(0.5)" href="${await (await getPic((params.pic as any) || 1)).img}"/>
 	</g>
 	
 	<g id="detail">
