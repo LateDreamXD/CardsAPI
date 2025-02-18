@@ -56,7 +56,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 	const contact = await genContact(params);
 	const {bgColor, textColor} = config;
 
-	res.status(200).setHeader('Content-Type', 'image/svg+xml');
+	res.status(200).setHeader('Content-Type', 'image/svg+xml').setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
 	res.send(`
 	<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 180">
 	<defs>
