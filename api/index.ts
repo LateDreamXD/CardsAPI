@@ -80,7 +80,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 	
 	<g id="detail">
 		<text class="text" transform="translate(20 35)">🎉 欢迎! o(〃＾▽＾〃)o</text>
-		<text class="text" transform="translate(20 65)">📆 今天是 ${moment().month()} 月 ${moment().day()} 日, ${week[moment().day() - 1]}</text>
+		<text class="text" transform="translate(20 65)">📆 今天是 ${moment().format('M')} 月 ${moment().format('D')} 日, ${week[moment().day() - 1]}</text>
 		<text class="text" transform="translate(20 95)">🎈 也是 ${moment().year()} 年的第 ${moment().dayOfYear()} 天</text>
 		<text class="text" transform="translate(20 125)">⏳ ${getTodayText(params)}</text>
 		<text class="text" transform="translate(20 155)">✨ ${params.quote || '祝你度过美好的一天!'}</text>
