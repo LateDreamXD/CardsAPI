@@ -2,7 +2,7 @@ import type {VercelRequest, VercelRequestQuery, VercelResponse} from '@vercel/no
 import moment from 'moment';
 moment.locale('zh-cn');
 
-import config from './config/default.json' with {type: 'json'};
+import config from '../config/default.js';
 const {socials, games, week, picOffset} = config;
 
 // const baseUrl = config.devUrl;
@@ -37,7 +37,7 @@ const genContact = async(params: VercelRequestQuery) => {
 
 const getPic = async(index: number) => {
 	return {
-		img: await fetchImage(baseUrl + 'res/bg/' + index + '.png'),
+		img: await fetchImage(baseUrl + 'res/pic/' + index + '.png'),
 		offset: picOffset[index]
 	}
 }
@@ -55,6 +55,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 	const params = req.query;
 	const contact = await genContact(params);
 	const {bgColor, textColor} = config;
+	console.log(params)
 
 	res.status(200).setHeader('Content-Type', 'image/svg+xml').setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');

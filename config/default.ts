@@ -1,4 +1,4 @@
-{
+export default {
   "devUrl": "http://localhost:3000/",
   "prodUrl": "https://cards.latedream.us.kg/",
   "-": "colors",
