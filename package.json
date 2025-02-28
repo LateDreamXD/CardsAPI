@@ -8,7 +8,7 @@
     "moment": "^2.30.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vercel dev"
   },
   "repository": {
     "type": "git",
