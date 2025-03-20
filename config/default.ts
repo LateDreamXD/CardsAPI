@@ -1,6 +1,6 @@
 export default {
   "devUrl": "http://localhost:3000/",
-  "prodUrl": "https://cards.latedream.us.kg/",
+  "prodUrl": "https://cards-api-latedreamawa.vercel.app/",
   "-": "colors",
   "bgColor": "#333",
   "textColor": "#f5f5f5",
