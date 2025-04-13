@@ -6,7 +6,7 @@ export default {
   "textColor": "#f5f5f5",
   "--": "arrays",
   "picOffset": [0, 0, 4.8, 2.7, 2.5],
-  "week": ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"],
+  "week": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
   "socials": ["bilibili", "discord", "email", "facebook", "github", "google", "microsoft",
 	  "phone", "pixiv", "qq", "site", "telegram", "twitch", "twitter", "wechat", "weibo",
 	  "youtube", "zhihu"],
