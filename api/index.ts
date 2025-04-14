@@ -44,7 +44,7 @@ const getPic = async(index: number) => {
 
 const getTodayText = (params: VercelRequestQuery) => {
 	const date = params.date || `${moment().year()}-12-31`;
-	const ret = -moment().diff(date, 'days');
+	const ret = (-moment().diff(date, 'days')) + 1;
 	const text = params.date? (params.date_name || '某个特殊日期'): '跨年';
 	const end = ret >= 0? '还有': '过去了';
 	const count = ret >= 0? ret : -ret;
