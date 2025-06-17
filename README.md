@@ -1,5 +1,7 @@
 ## 一个卡片 API 🎉
 
+v1版本已停止维护
+
 基于 Vercel Severless 和 node.js 开发  
 是 [Xecades/API](https://github.com/Xecades/API) 的 fork 版本
 
